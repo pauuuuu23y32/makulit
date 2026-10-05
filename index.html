@@ -4,9 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello Fahh 🇵🇭🇹🇭</title>
+
+<title>Hoy Allyson Jae 😎</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -19,179 +25,164 @@ html, body {
 }
 
 body {
-    font-family: "Segoe UI", "Noto Sans Thai", Arial, sans-serif;
     overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 20%),
-        radial-gradient(circle at 80% 10%, rgba(255,255,255,.15), transparent 20%),
-        linear-gradient(135deg, #0b4ea2, #ffffff 48%, #c51f32);
-    color: #222;
+        radial-gradient(circle at 50% 20%, #26334f 0%, #111827 35%, #05070d 75%);
+    color: white;
 }
 
+
 /* =========================
-   BACKGROUND
+   NIGHT BACKGROUND
 ========================= */
 
-.sky {
+.background {
     position: fixed;
     inset: 0;
     overflow: hidden;
-    pointer-events: none;
     z-index: 0;
+    pointer-events: none;
 }
 
-/* Stars */
+.moon {
+    position: absolute;
+    top: 7%;
+    right: 10%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #fff4bd;
+    box-shadow:
+        0 0 30px #fff4bd,
+        0 0 90px rgba(255,244,189,.35);
+    animation: moonGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+    from {
+        box-shadow:
+            0 0 25px #fff4bd,
+            0 0 60px rgba(255,244,189,.25);
+    }
+
+    to {
+        box-shadow:
+            0 0 40px #fff4bd,
+            0 0 110px rgba(255,244,189,.45);
+    }
+}
+
+
+/* STARS */
+
 .star {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: white;
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
-    box-shadow: 0 0 10px white;
-    animation: twinkle 2s infinite alternate;
+    background: white;
+    box-shadow: 0 0 8px white;
+    animation: starBlink 2s infinite alternate;
 }
 
-.star:nth-child(1) { left: 8%; top: 12%; animation-delay: .2s; }
-.star:nth-child(2) { left: 18%; top: 32%; animation-delay: .8s; }
-.star:nth-child(3) { left: 31%; top: 10%; animation-delay: 1.2s; }
-.star:nth-child(4) { left: 48%; top: 22%; animation-delay: .5s; }
-.star:nth-child(5) { left: 62%; top: 8%; animation-delay: 1.5s; }
-.star:nth-child(6) { left: 76%; top: 27%; animation-delay: .4s; }
-.star:nth-child(7) { left: 89%; top: 13%; animation-delay: 1s; }
-.star:nth-child(8) { left: 92%; top: 45%; animation-delay: 1.7s; }
+.s1 { left: 7%; top: 15%; }
+.s2 { left: 19%; top: 8%; animation-delay: .4s; }
+.s3 { left: 31%; top: 19%; animation-delay: .8s; }
+.s4 { left: 45%; top: 9%; animation-delay: 1.2s; }
+.s5 { left: 60%; top: 16%; animation-delay: .3s; }
+.s6 { left: 73%; top: 28%; animation-delay: 1s; }
+.s7 { left: 84%; top: 13%; animation-delay: .6s; }
+.s8 { left: 92%; top: 35%; animation-delay: 1.5s; }
 
-@keyframes twinkle {
-    from { opacity: .25; transform: scale(.7); }
-    to { opacity: 1; transform: scale(1.5); }
-}
-
-/* Floating hearts */
-.heart {
-    position: absolute;
-    font-size: 22px;
-    opacity: .65;
-    animation: floatHeart 9s linear infinite;
-}
-
-.heart:nth-child(10) {
-    left: 8%;
-    bottom: -50px;
-    animation-delay: 0s;
-}
-
-.heart:nth-child(11) {
-    left: 28%;
-    bottom: -50px;
-    animation-delay: 3s;
-}
-
-.heart:nth-child(12) {
-    left: 55%;
-    bottom: -50px;
-    animation-delay: 6s;
-}
-
-.heart:nth-child(13) {
-    left: 82%;
-    bottom: -50px;
-    animation-delay: 1.5s;
-}
-
-@keyframes floatHeart {
-    0% {
-        transform: translateY(0) rotate(-10deg);
-        opacity: 0;
+@keyframes starBlink {
+    from {
+        opacity: .25;
+        transform: scale(.7);
     }
-    15% {
-        opacity: .7;
-    }
-    85% {
-        opacity: .7;
-    }
-    100% {
-        transform: translateY(-110vh) rotate(20deg);
-        opacity: 0;
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
     }
 }
+
 
 /* =========================
-   FLOATING LANTERNS
+   CITY LIGHTS
 ========================= */
 
-.lantern {
+.city {
     position: absolute;
-    width: 34px;
-    height: 48px;
-    border-radius: 45% 45% 40% 40%;
-    background: linear-gradient(#ffdf6b, #ff7b00);
-    box-shadow:
-        0 0 20px #ffd35a,
-        0 0 45px rgba(255,190,50,.7);
-    animation: lanternFloat 12s linear infinite;
-    opacity: .8;
+    bottom: 0;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
 }
 
-.lantern::before {
-    content: "";
+.building {
+    background: #111827;
+    border-top: 2px solid #202a3d;
+    position: relative;
+}
+
+.building:nth-child(1) { width: 9%; height: 70px; }
+.building:nth-child(2) { width: 7%; height: 120px; }
+.building:nth-child(3) { width: 11%; height: 90px; }
+.building:nth-child(4) { width: 8%; height: 140px; }
+.building:nth-child(5) { width: 13%; height: 80px; }
+.building:nth-child(6) { width: 9%; height: 115px; }
+.building:nth-child(7) { width: 12%; height: 65px; }
+.building:nth-child(8) { width: 10%; height: 130px; }
+.building:nth-child(9) { width: 8%; height: 85px; }
+.building:nth-child(10) { width: 13%; height: 105px; }
+
+.building::after {
+    content: "▪ ▪ ▪";
     position: absolute;
+    color: #facc15;
+    font-size: 13px;
+    line-height: 28px;
+    letter-spacing: 6px;
+    opacity: .55;
+    top: 12px;
     left: 8px;
-    right: 8px;
-    top: -7px;
-    height: 7px;
-    border: 2px solid #d88900;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
 }
 
-.lantern::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -12px;
-    width: 2px;
-    height: 12px;
-    background: #d88900;
-}
-
-.l1 {
-    left: 5%;
-    bottom: -70px;
-    animation-delay: 1s;
-}
-
-.l2 {
-    left: 40%;
-    bottom: -70px;
-    animation-delay: 5s;
-    transform: scale(.8);
-}
-
-.l3 {
-    right: 8%;
-    bottom: -70px;
-    animation-delay: 8s;
-    transform: scale(.65);
-}
-
-@keyframes lanternFloat {
-    0% {
-        transform: translateY(0) translateX(0) rotate(-5deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: .8;
-    }
-    50% {
-        transform: translateY(-55vh) translateX(30px) rotate(5deg);
-    }
-    100% {
-        transform: translateY(-115vh) translateX(-20px) rotate(-5deg);
-        opacity: 0;
-    }
-}
 
 /* =========================
-   MAIN CARD
+   ROAD
+========================= */
+
+.road {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 95px;
+    background: #080b12;
+    border-top: 3px solid #242936;
+}
+
+.road-line {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background:
+        repeating-linear-gradient(
+            to right,
+            #e5e7eb 0 70px,
+            transparent 70px 130px
+        );
+    opacity: .55;
+}
+
+
+/* =========================
+   MAIN
 ========================= */
 
 .page {
@@ -201,425 +192,616 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 35px 18px;
+    padding: 35px 15px 140px;
 }
 
 .card {
     width: min(900px, 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 45px 30px 38px;
-    border-radius: 32px;
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(14px);
+    padding: 42px 25px 40px;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,25,39,.95),
+            rgba(9,12,20,.94)
+        );
+
+    border: 1px solid rgba(255,255,255,.12);
+
     box-shadow:
-        0 25px 70px rgba(0,0,0,.25),
-        0 0 0 5px rgba(255,255,255,.25);
+        0 30px 100px rgba(0,0,0,.6),
+        0 0 40px rgba(59,130,246,.12);
+
     text-align: center;
-    animation: cardAppear 1.3s ease;
+
+    animation: cardEnter 1.2s ease;
 }
 
-@keyframes cardAppear {
+@keyframes cardEnter {
+
     from {
         opacity: 0;
-        transform: translateY(40px) scale(.96);
+        transform:
+            translateY(50px)
+            scale(.95);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
-/* Top decorative line */
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: linear-gradient(
-        90deg,
-        #0038a8 0%,
-        #ffffff 25%,
-        #ce1126 50%,
-        #ffffff 75%,
-        #241d4f 100%
-    );
-}
 
 /* =========================
-   FLAGS
+   HEADER
 ========================= */
 
-.flags {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.1);
+    color: #9ca3af;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin-bottom: 18px;
 }
 
-.flag {
-    width: 100px;
-    height: 62px;
-    border-radius: 7px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 8px 18px rgba(0,0,0,.2);
-    animation: flagWave 2.5s ease-in-out infinite;
-    transform-origin: left center;
-}
+h1 {
+    font-size: clamp(38px, 8vw, 72px);
+    margin-bottom: 12px;
 
-.flag.ph {
-    background: linear-gradient(
-        to bottom,
-        #0038a8 0 50%,
-        #ce1126 50% 100%
-    );
-}
-
-.flag.ph::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 0;
-    border-top: 31px solid transparent;
-    border-bottom: 31px solid transparent;
-    border-left: 52px solid #ffffff;
-}
-
-.flag.ph::after {
-    content: "☀";
-    position: absolute;
-    left: 10px;
-    top: 18px;
-    color: #fcd116;
-    font-size: 22px;
-}
-
-.flag.th {
     background:
         linear-gradient(
-            to bottom,
-            #a51931 0 18%,
-            #ffffff 18% 31%,
-            #2d2a4a 31% 69%,
-            #ffffff 69% 82%,
-            #a51931 82% 100%
+            90deg,
+            #38bdf8,
+            #f472b6,
+            #facc15
         );
-}
 
-@keyframes flagWave {
-    0%, 100% {
-        transform: perspective(400px) rotateY(0deg);
-    }
-    50% {
-        transform: perspective(400px) rotateY(-10deg);
-    }
-}
-
-.bridge {
-    font-size: 30px;
-    animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-    50% {
-        transform: scale(1.18);
-    }
-}
-
-/* =========================
-   TEXT
-========================= */
-
-.small-title {
-    font-size: 15px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #777;
-    margin-bottom: 9px;
-}
-
-h1 {
-    font-size: clamp(35px, 7vw, 62px);
-    line-height: 1.05;
-    margin-bottom: 12px;
-    background: linear-gradient(
-        90deg,
-        #0038a8,
-        #ce1126,
-        #2d2a4a
-    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-    font-size: 19px;
-    color: #555;
-    margin-bottom: 30px;
+    color: #9ca3af;
+    font-size: 17px;
+    margin-bottom: 32px;
 }
+
+
+/* =========================
+   VAPE DISPLAY
+========================= */
+
+.vape-area {
+    position: relative;
+    height: 170px;
+    margin: 5px auto 25px;
+    max-width: 550px;
+}
+
+.vape {
+    position: absolute;
+    left: 50%;
+    top: 78px;
+    transform: translateX(-50%) rotate(-8deg);
+    width: 190px;
+    height: 48px;
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #111827,
+            #374151,
+            #111827
+        );
+
+    box-shadow:
+        0 0 20px rgba(56,189,248,.4),
+        0 12px 30px rgba(0,0,0,.6);
+}
+
+.vape::before {
+    content: "";
+    position: absolute;
+    right: -28px;
+    top: 14px;
+    width: 30px;
+    height: 20px;
+    border-radius: 4px;
+    background: #64748b;
+}
+
+.vape::after {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 13px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 18px #38bdf8;
+}
+
+
+/* VAPE SMOKE */
+
+.smoke {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.14);
+    filter: blur(3px);
+    animation: smokeUp 4s ease-out infinite;
+}
+
+.smoke:nth-child(1) {
+    left: 48%;
+    top: 72px;
+}
+
+.smoke:nth-child(2) {
+    left: 53%;
+    top: 63px;
+    animation-delay: 1s;
+}
+
+.smoke:nth-child(3) {
+    left: 57%;
+    top: 75px;
+    animation-delay: 2s;
+}
+
+@keyframes smokeUp {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(0,0)
+            scale(.5);
+    }
+
+    20% {
+        opacity: .55;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(45px,-120px)
+            scale(2);
+    }
+}
+
 
 /* =========================
    MESSAGE
 ========================= */
 
 .message-box {
-    position: relative;
-    margin: 0 auto;
-    max-width: 760px;
-    padding: 28px 24px;
+    max-width: 730px;
+    margin: auto;
+    padding: 30px 20px;
+
     border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid rgba(255,255,255,.09);
+}
+
+.message {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: clamp(21px, 4vw, 32px);
+    line-height: 1.5;
+    font-weight: bold;
+
+    color: #f9fafb;
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 1.8s ease,
+        transform 1.8s ease;
+
+    margin-bottom: 22px;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message.highlight {
+    color: #facc15;
+    text-shadow:
+        0 0 12px rgba(250,204,21,.35);
+}
+
+.message.last {
+    color: #38bdf8;
+    font-size: clamp(20px, 4vw, 28px);
+}
+
+
+/* =========================
+   VEHICLE SHOWCASE
+========================= */
+
+.vehicles {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 30px 0 5px;
+    font-size: 52px;
+}
+
+.vehicle {
+    opacity: 0;
+    animation:
+        vehicleAppear 1s ease forwards,
+        vehicleFloat 2s ease-in-out infinite 1s;
+}
+
+.vehicle:nth-child(2) {
+    animation-delay: .4s, 1.4s;
+}
+
+.vehicle:nth-child(3) {
+    animation-delay: .8s, 1.8s;
+}
+
+@keyframes vehicleAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes vehicleFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================
+   FINAL SCENE
+========================= */
+
+.final-scene {
+    display: none;
+    position: relative;
+
+    margin-top: 35px;
+    padding: 35px 20px;
+
+    border-radius: 25px;
+
     background:
         linear-gradient(
             135deg,
-            rgba(0,56,168,.08),
-            rgba(206,17,38,.08),
-            rgba(45,42,74,.08)
+            rgba(127,29,29,.3),
+            rgba(30,41,59,.6)
         );
-    border: 2px solid rgba(0,0,0,.07);
-    text-align: left;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    overflow: hidden;
 }
 
-.message-label {
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    color: #777;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-}
-
-.message-part {
-    padding: 18px 15px;
-    margin-bottom: 16px;
-    border-radius: 18px;
-    background: rgba(255,255,255,.8);
-    box-shadow: 0 8px 20px rgba(0,0,0,.07);
-    animation: messageAppear 1.3s ease both;
-}
-
-.message-part:nth-child(2) {
-    animation-delay: .3s;
-}
-
-.message-part:nth-child(3) {
-    animation-delay: .6s;
-}
-
-.message-part:nth-child(4) {
-    animation-delay: .9s;
-}
-
-.tagalog {
-    font-size: 20px;
-    line-height: 1.7;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.thai {
-    font-size: 20px;
-    line-height: 1.8;
-    color: #a51931;
-    border-left: 4px solid #2d2a4a;
-    padding-left: 14px;
-}
-
-.language-label {
+.final-scene.show {
     display: block;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: #888;
-    margin-bottom: 3px;
-    text-transform: uppercase;
+    animation: finalScene 1.5s ease;
 }
 
-@keyframes messageAppear {
+@keyframes finalScene {
+
     from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: scale(.85);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
-/* =========================
-   CULTURAL DECORATIONS
-========================= */
+.final-title {
+    color: #f87171;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
 
-.decorations {
+.family {
     display: flex;
     justify-content: center;
-    gap: 28px;
-    margin: 25px 0 10px;
-    font-size: 32px;
+    align-items: flex-end;
+    gap: 55px;
 }
 
-.decoration {
-    animation: decorationFloat 3s ease-in-out infinite;
+.person {
+    font-size: 75px;
 }
 
-.decoration:nth-child(2) {
-    animation-delay: .7s;
+.father {
+    animation:
+        angryShake .45s infinite alternate;
 }
 
-.decoration:nth-child(3) {
-    animation-delay: 1.4s;
+.child {
+    animation:
+        nervousShake .8s infinite alternate;
 }
 
-.decoration:nth-child(4) {
-    animation-delay: 2.1s;
-}
+@keyframes angryShake {
 
-@keyframes decorationFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(-4deg);
+    from {
+        transform: rotate(-5deg);
     }
-    50% {
-        transform: translateY(-9px) rotate(4deg);
+
+    to {
+        transform: rotate(5deg);
     }
 }
+
+@keyframes nervousShake {
+
+    from {
+        transform: translateX(-3px);
+    }
+
+    to {
+        transform: translateX(3px);
+    }
+}
+
+.speech {
+    position: absolute;
+    right: 10%;
+    top: 55px;
+
+    padding: 12px 17px;
+    border-radius: 18px;
+
+    background: white;
+    color: #111827;
+
+    font-weight: bold;
+    font-size: 14px;
+
+    animation: speechPop 1s ease;
+}
+
+.speech::after {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    left: 25px;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid white;
+}
+
+@keyframes speechPop {
+
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.final-note {
+    margin-top: 25px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+.start-area {
+    margin-top: 25px;
+}
+
+.start-btn {
+    border: none;
+    padding: 15px 28px;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #9333ea,
+            #db2777
+        );
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(147,51,234,.35);
+
+    transition: .3s;
+}
+
+.start-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+.start-btn:active {
+    transform: scale(.96);
+}
+
+.start-btn.hidden {
+    display: none;
+}
+
+
+/* =========================
+   YOUTUBE PLAYER
+========================= */
+
+.youtube-holder {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 /* =========================
    FOOTER
 ========================= */
 
 .footer {
-    margin-top: 25px;
-    font-size: 16px;
-    color: #666;
+    margin-top: 30px;
+    color: #6b7280;
+    font-size: 14px;
 }
 
-.signature {
-    margin-top: 7px;
-    font-weight: bold;
-    font-size: 20px;
-    color: #333;
-}
-
-/* =========================
-   CONFETTI
-========================= */
-
-.confetti {
-    position: fixed;
-    width: 9px;
-    height: 15px;
-    top: -30px;
-    z-index: 20;
-    pointer-events: none;
-    animation: confettiFall linear forwards;
-}
-
-@keyframes confettiFall {
-    to {
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-        opacity: 0;
-    }
-}
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media(max-width:600px) {
 
     .page {
-        padding: 20px 10px;
+        padding: 20px 10px 120px;
     }
 
     .card {
-        padding: 38px 16px 28px;
-        border-radius: 25px;
+        padding: 35px 14px;
     }
 
-    .flag {
-        width: 76px;
-        height: 48px;
+    .moon {
+        width: 60px;
+        height: 60px;
+        right: 7%;
     }
 
-    .flag.ph::before {
-        border-top-width: 24px;
-        border-bottom-width: 24px;
-        border-left-width: 40px;
+    .vape-area {
+        height: 145px;
     }
 
-    .flag.ph::after {
-        left: 7px;
-        top: 13px;
-        font-size: 17px;
+    .vape {
+        width: 150px;
+        height: 42px;
     }
 
-    .bridge {
-        font-size: 23px;
-    }
-
-    h1 {
+    .vehicles {
         font-size: 40px;
+        gap: 20px;
     }
 
-    .subtitle {
-        font-size: 16px;
+    .family {
+        gap: 30px;
     }
 
-    .message-box {
-        padding: 18px 12px;
+    .person {
+        font-size: 55px;
     }
 
-    .message-part {
-        padding: 16px 13px;
-    }
-
-    .tagalog,
-    .thai {
-        font-size: 17px;
-    }
-
-    .decorations {
-        font-size: 27px;
-        gap: 18px;
+    .speech {
+        right: 3%;
+        top: 30px;
+        font-size: 11px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
+
 <!-- =========================
-     ANIMATED BACKGROUND
+     BACKGROUND
 ========================= -->
 
-<div class="sky">
+<div class="background">
 
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
+    <div class="moon"></div>
 
-    <div class="heart">💗</div>
-    <div class="heart">💖</div>
-    <div class="heart">💕</div>
-    <div class="heart">💗</div>
+    <div class="star s1"></div>
+    <div class="star s2"></div>
+    <div class="star s3"></div>
+    <div class="star s4"></div>
+    <div class="star s5"></div>
+    <div class="star s6"></div>
+    <div class="star s7"></div>
+    <div class="star s8"></div>
 
-    <div class="lantern l1"></div>
-    <div class="lantern l2"></div>
-    <div class="lantern l3"></div>
+    <div class="city">
+
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+
+    </div>
+
+    <div class="road">
+        <div class="road-line"></div>
+    </div>
 
 </div>
+
 
 
 <!-- =========================
@@ -628,207 +810,537 @@ h1 {
 
 <main class="page">
 
-    <section class="card">
+<section class="card">
 
-        <!-- FLAGS -->
 
-        <div class="flags">
+    <div class="badge">
+        ⚠️ IMPORTANT MESSAGE ⚠️
+    </div>
 
-            <div class="flag ph"></div>
 
-            <div class="bridge">🤝</div>
+    <h1>
+        HOY ALLYSON JAE 😎
+    </h1>
 
-            <div class="flag th"></div>
 
+    <div class="subtitle">
+        Please read this message carefully...
+    </div>
+
+
+
+    <!-- VAPE ANIMATION -->
+
+    <div class="vape-area">
+
+        <div class="smoke"></div>
+        <div class="smoke"></div>
+        <div class="smoke"></div>
+
+        <div class="vape"></div>
+
+    </div>
+
+
+
+    <!-- MESSAGE -->
+
+    <div class="message-box">
+
+        <div
+            class="message"
+            id="message1">
+            Hoy Allyson Jae...
         </div>
 
 
-        <div class="small-title">
-            Philippines 🇵🇭 × Thailand 🇹🇭
-        </div>
-
-        <h1>Hello Fahh</h1>
-
-        <div class="subtitle">
-            A little message from your friend, Franz 💗
+        <div
+            class="message"
+            id="message2">
+            Wag kang war freak...
         </div>
 
 
-        <!-- MESSAGE -->
+        <div
+            class="message highlight"
+            id="message3">
+            Or else...
+        </div>
 
-        <div class="message-box">
 
-            <div class="message-label">
-                💌 A message from the Philippines to Thailand 💌
+        <div
+            class="message"
+            id="message4">
+            I susumbong ko mga ginagawa mo sa papa mo...
+        </div>
+
+
+        <div
+            class="message last"
+            id="message5">
+            😭 Kaya behave ka na.
+        </div>
+
+
+
+        <!-- VEHICLES -->
+
+        <div class="vehicles">
+
+            <div class="vehicle">
+                🏍️
             </div>
 
-
-            <!-- MESSAGE 1 -->
-
-            <div class="message-part">
-
-                <span class="language-label">
-                    Tagalog 🇵🇭
-                </span>
-
-                <p class="tagalog">
-                    Hello Fahh, goodluck sa school mo at sa paparating mong journey.
-                </p>
-
-                <span class="language-label">
-                    Thai 🇹🇭
-                </span>
-
-                <p class="thai">
-                    สวัสดี Fahh ขอให้โชคดีกับการเรียนและเส้นทางใหม่ที่กำลังจะมาถึงนะ
-                </p>
-
+            <div class="vehicle">
+                🛵
             </div>
 
-
-            <!-- MESSAGE 2 -->
-
-            <div class="message-part">
-
-                <span class="language-label">
-                    Tagalog 🇵🇭
-                </span>
-
-                <p class="tagalog">
-                    Sana mahanap mo ang dream life mo at makuha mo lahat ng gusto mo sa buhay.
-                </p>
-
-                <span class="language-label">
-                    Thai 🇹🇭
-                </span>
-
-                <p class="thai">
-                    ขอให้เธอได้พบกับชีวิตในฝัน และได้ทุกสิ่งที่เธอต้องการในชีวิต
-                </p>
-
-            </div>
-
-
-            <!-- MESSAGE 3 -->
-
-            <div class="message-part">
-
-                <span class="language-label">
-                    Tagalog 🇵🇭
-                </span>
-
-                <p class="tagalog">
-                    Maganda ka.
-                </p>
-
-                <span class="language-label">
-                    Thai 🇹🇭
-                </span>
-
-                <p class="thai">
-                    เธอสวยมากนะ
-                </p>
-
-            </div>
-
-
-            <!-- DECORATIONS -->
-
-            <div class="decorations">
-
-                <div class="decoration">🌺</div>
-                <div class="decoration">🌴</div>
-                <div class="decoration">🪷</div>
-                <div class="decoration">🌸</div>
-
+            <div class="vehicle">
+                🚲
             </div>
 
         </div>
 
+    </div>
 
-        <!-- FOOTER -->
 
-        <div class="footer">
 
-            From your friend
+    <!-- FINAL SCENE -->
 
-            <div class="signature">
-                — Franz 🇵🇭💗🇹🇭
+    <div
+        class="final-scene"
+        id="finalScene">
+
+        <div class="final-title">
+            👀 AND THEN...
+        </div>
+
+
+        <div class="family">
+
+            <div class="person father">
+                👨
+            </div>
+
+            <div class="person child">
+                🧒
             </div>
 
         </div>
 
-    </section>
+
+        <div class="speech">
+            "Allyson Jae! Ano na naman yan?!"
+        </div>
+
+
+        <div class="final-note">
+            Relax 😂 This is just a cartoon warning.
+        </div>
+
+    </div>
+
+
+
+    <!-- START -->
+
+    <div class="start-area">
+
+        <button
+            class="start-btn"
+            id="startButton">
+
+            ▶️ Start the message
+
+        </button>
+
+    </div>
+
+
+
+    <div class="footer">
+        Made with 😂 by Franz
+    </div>
+
+
+</section>
 
 </main>
 
 
+
+<!-- =========================
+     HIDDEN YOUTUBE PLAYER
+========================= -->
+
+<div class="youtube-holder">
+
+    <div id="youtubePlayer"></div>
+
+</div>
+
+
+
 <script>
 
-/* ======================================
-   CONFETTI
-====================================== */
+/* =====================================================
+   SETTINGS
+===================================================== */
 
-function createConfetti() {
 
-    for (let i = 0; i < 90; i++) {
+/*
+   YouTube video ID from your link:
 
-        const confetti = document.createElement("div");
+   https://youtu.be/UtwDPT4fMA4
 
-        confetti.className = "confetti";
+   Approximate chorus start:
+   1 minute 45 seconds = 105 seconds
 
-        confetti.style.left = Math.random() * 100 + "vw";
+   Change this number if you want to fine-tune
+   exactly where the music begins.
+*/
 
-        confetti.style.animationDuration =
-            (3 + Math.random() * 4) + "s";
+const CHORUS_START = 105;
 
-        confetti.style.animationDelay =
-            Math.random() * 2 + "s";
 
-        const shapes = [
-            "★",
-            "●",
-            "♥",
-            "✦"
-        ];
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-        confetti.textContent =
-            shapes[Math.floor(Math.random() * shapes.length)];
+let player = null;
+let youtubeReady = false;
 
-        confetti.style.fontSize =
-            (8 + Math.random() * 10) + "px";
+const startButton =
+    document.getElementById("startButton");
 
-        document.body.appendChild(confetti);
+const messages = [
+    document.getElementById("message1"),
+    document.getElementById("message2"),
+    document.getElementById("message3"),
+    document.getElementById("message4"),
+    document.getElementById("message5")
+];
+
+const finalScene =
+    document.getElementById("finalScene");
+
+
+/* =====================================================
+   LOAD YOUTUBE API
+===================================================== */
+
+const youtubeScript =
+    document.createElement("script");
+
+youtubeScript.src =
+    "https://www.youtube.com/iframe_api";
+
+document.head.appendChild(youtubeScript);
+
+
+/* =====================================================
+   YOUTUBE READY
+===================================================== */
+
+window.onYouTubeIframeAPIReady = function() {
+
+    player = new YT.Player(
+        "youtubePlayer",
+        {
+
+            height: "1",
+            width: "1",
+
+            videoId: "UtwDPT4fMA4",
+
+            playerVars: {
+
+                autoplay: 0,
+
+                controls: 0,
+
+                rel: 0,
+
+                playsinline: 1
+
+            },
+
+            events: {
+
+                onReady: function() {
+
+                    youtubeReady = true;
+
+                }
+
+            }
+
+        }
+    );
+
+};
+
+
+/* =====================================================
+   PLAY SONG AT CHORUS
+===================================================== */
+
+function playSongAtChorus() {
+
+    if (!player || !youtubeReady) {
+
+        return;
+
+    }
+
+    /*
+       Start muted first for better mobile-browser
+       compatibility, then unmute.
+    */
+
+    try {
+
+        player.mute();
+
+        player.seekTo(
+            CHORUS_START,
+            true
+        );
+
+        player.playVideo();
 
         setTimeout(() => {
-            confetti.remove();
-        }, 8000);
+
+            try {
+
+                player.unMute();
+
+                player.setVolume(100);
+
+            } catch (error) {
+
+                console.log(error);
+
+            }
+
+        }, 700);
+
+    } catch (error) {
+
+        console.log(
+            "YouTube playback error:",
+            error
+        );
+
     }
+
 }
 
 
-/* ======================================
-   START CONFETTI
-====================================== */
+/* =====================================================
+   SHOW MESSAGE
+===================================================== */
 
-window.addEventListener("load", () => {
+function showMessage(index) {
+
+    if (index >= messages.length) {
+
+        /*
+           All messages are finished.
+           Wait a little before showing
+           the final father/kid cartoon scene.
+        */
+
+        setTimeout(() => {
+
+            finalScene.classList.add("show");
+
+            createConfetti();
+
+        }, 1800);
+
+        return;
+
+    }
+
+
+    messages[index].classList.add("show");
+
+
+    /*
+       When the final actual message appears,
+       start the YouTube song.
+    */
+
+    if (index === messages.length - 1) {
+
+        setTimeout(() => {
+
+            playSongAtChorus();
+
+        }, 500);
+
+    }
+
+
+    /*
+       Next message appears slowly.
+    */
 
     setTimeout(() => {
-        createConfetti();
-    }, 700);
 
-});
+        showMessage(index + 1);
+
+    }, 2600);
+
+}
 
 
-/* ======================================
-   PERIODIC CONFETTI
-====================================== */
+/* =====================================================
+   START BUTTON
+===================================================== */
 
-setInterval(() => {
+startButton.addEventListener(
+    "click",
+    function() {
+
+        startButton.classList.add("hidden");
+
+
+        /*
+           Small dramatic pause
+        */
+
+        setTimeout(() => {
+
+            showMessage(0);
+
+        }, 700);
+
+    }
+);
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti() {
+
+    const symbols = [
+        "★",
+        "✦",
+        "●",
+        "◆",
+        "⚡"
+    ];
+
+    for (let i = 0; i < 70; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.style.position = "fixed";
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.top = "-20px";
+
+        piece.style.zIndex = "100";
+
+        piece.style.pointerEvents = "none";
+
+        piece.style.fontSize =
+            (10 + Math.random() * 15) + "px";
+
+        piece.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() * symbols.length
+                )
+            ];
+
+        piece.style.color =
+            [
+                "#38bdf8",
+                "#facc15",
+                "#f472b6",
+                "#a78bfa",
+                "#4ade80"
+            ][
+                Math.floor(Math.random() * 5)
+            ];
+
+
+        const duration =
+            3 + Math.random() * 4;
+
+        piece.style.animation =
+            `fall ${duration}s linear forwards`;
+
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, duration * 1000 + 100);
+
+    }
+
+}
+
+
+/* =====================================================
+   CONFETTI ANIMATION
+===================================================== */
+
+const confettiStyle =
+    document.createElement("style");
+
+confettiStyle.textContent = `
+
+@keyframes fall {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+`;
+
+document.head.appendChild(confettiStyle);
+
+
+/* =====================================================
+   INITIAL CONFETTI
+===================================================== */
+
+setTimeout(() => {
 
     createConfetti();
 
-}, 15000);
+}, 1000);
 
 </script>
 
